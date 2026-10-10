@@ -1,180 +1,816 @@
- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="emerald">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gulshan Kumar | Frontend Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Premium Cinematic Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gulshan Kumar | Frontend Developer & 3D Web Creator</title>
+  <meta name="description" content="Portfolio of Gulshan Kumar - Passionate Frontend Developer from Bettiah, Bihar crafting interactive, responsive and 3D modern web experiences.">
+
+  <!-- Favicon / Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons for High-Tech UI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
+  <!-- Three.js 3D WebGL Canvas Backdrop -->
+  <canvas id="webgl-canvas"></canvas>
+  <div class="cyber-grid-overlay"></div>
 
-    <!-- Loading Experience -->
-    <div id="loader">
-        <div class="loader-text">GK<span>.</span></div>
-        <small>INITIALIZING PORTFOLIO</small>
-    </div>
+  <!-- Custom Futuristic 3D Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
 
+  <div class="site-wrapper">
     <!-- Header / Nav -->
-    <header>
-        <a href="#home" class="logo">G<span>.</span></a>
-        <nav>
-            <a href="#home">01 — Home</a>
-            <a href="#about">02 — About</a>
-            <a href="#work">03 — Work</a>
-            <a href="#contact">04 — Contact</a>
-        </nav>
-        <a href="#contact" class="status-btn">
-            <span class="dot"></span> Available to Work
+    <header class="site-header" id="site-header">
+      <a href="#home" class="logo" title="Gulshan Kumar">
+        <div class="logo-badge">G</div>
+        <span class="logo-text">GULSHAN<span class="logo-dot">.</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="main-nav" id="main-nav">
+        <a href="#home" class="active"><span>01</span>Home</a>
+        <a href="#about"><span>02</span>About</a>
+        <a href="#skills"><span>03</span>Skills</a>
+        <a href="#work"><span>04</span>Work</a>
+        <a href="#terminal"><span>05</span>Console</a>
+        <a href="#contact"><span>06</span>Contact</a>
+      </nav>
+
+      <!-- Header Right Controls -->
+      <div class="header-actions">
+        <!-- Interactive Theme Accent Switcher -->
+        <div class="theme-selector" title="Switch Theme Accent">
+          <div class="color-dot active" data-color="emerald" title="Matrix Emerald"></div>
+          <div class="color-dot" data-color="violet" title="Cyber Violet"></div>
+          <div class="color-dot" data-color="cyan" title="Electric Cyan"></div>
+          <div class="color-dot" data-color="amber" title="Solar Amber"></div>
+        </div>
+
+        <!-- Futuristic Audio FX Toggle -->
+        <button class="sound-toggle-btn" id="sound-toggle" title="Toggle Futuristic Sound FX" aria-label="Toggle Sound">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+
+        <!-- Live Status Pill -->
+        <a href="#contact" class="btn-status-pill" title="Status: Available to Work">
+          <span class="live-indicator"></span>
+          <span>Hire Me</span>
         </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+      </div>
     </header>
 
-     <!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="hero-top">
-        <span>BETTIAH, BIHAR · 2026</span>
-        <span>SCROLL DOWN ↓</span>
-    </div>
-    
-    <div class="hero-content">
-        <!-- Left Side: Text -->
-        <div class="hero-text">
-            <p class="subtitle">FRONTEND DEVELOPER</p>
-            <h1>BUILDING<br><span class="outline-text">MODERN</span><br>WEB.</h1>
-            <p class="desc">Main clean, responsive aur interactive web interfaces banata hu. Mera focus behtareen user experience aur modern technologies par hai.</p>
-            <div class="hero-btns">
-                <a href="#work" class="btn">View My Journey ↗</a>
-                <a href="#contact" class="btn btn-outline">Let's Connect</a>
-            </div>
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero-section">
+        <div class="hero-meta-bar">
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-location-crosshairs meta-icon"></i>
+            <span>BETTIAH, BIHAR · INDIA</span>
+          </div>
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-code-commit meta-icon"></i>
+            <span>EDITION · 2026</span>
+          </div>
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-circle-nodes meta-icon"></i>
+            <span>3D INTERACTIVE WEB</span>
+          </div>
         </div>
 
-        <!-- Right Side: Image -->
-        <div class="hero-image">
-            <!-- Yahan apni photo ka naam daalein -->
-            <img src="C:\Users\dygul\OneDrive\Desktop\My Portfolio\WhatsApp Image 2026-09-28 at 10.32.30 AM.jpeg" alt="Gulshan Kumar">
-        </div>
-    </div>
-</section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="section-label"><span>02</span> WHO AM I</div>
-        <div class="about-content">
-            <div class="about-left">
-                <h2>I WRITE <span>CODE</span> THAT <span>WORKS.</span></h2>
+        <div class="hero-layout">
+          <!-- Hero Left Text -->
+          <div class="hero-text-content">
+            <div class="hero-badge-pill">
+              <i class="fa-solid fa-terminal"></i>
+              <span>GULSHAN KUMAR // FRONTEND DEV</span>
             </div>
-            <div class="about-right">
-                <p>Hello, I'm Gulshan Kumar. Ek passionate Frontend Developer jo ideas ko digital reality mein badalna seekh raha hai. Mujhe nayi technologies explore karna aur design ko code ke zariye zinda karna pasand hai.</p>
-                <p>Kyunki main abhi apne career ki shuruaat kar raha hu, mera poora focus apni skills ko perfect karne aur real-world problems ko solve karne wali websites banane par hai.</p>
-                <div class="stats">
-                    <div class="stat-item"><strong>100%</strong><span>DEDICATION</span></div>
-                    <div class="stat-item"><strong>06+</strong><span>TECH SKILLS</span></div>
-                    <div class="stat-item"><strong>∞</strong><span>PASSION TO LEARN</span></div>
+
+            <h1 class="hero-title">
+              CRAFTING<br>
+              <span class="text-outline">MODERN 3D</span><br>
+              <span class="text-gradient">WEB EXPERIENCES.</span>
+            </h1>
+
+            <div class="hero-dynamic-role">
+              <span>I specialize in</span>
+              <span class="typewriter" id="typewriter-text">Frontend Architecture</span>
+            </div>
+
+            <p class="hero-description">
+              Main clean, responsive aur interactive web interfaces banata hu. Mera focus behtareen user experience, modern aesthetics aur lightning-fast performance par hai.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#work" class="btn-primary">
+                <span>Explore Projects</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </a>
+              <a href="#contact" class="btn-glass">
+                <span>Let's Connect</span>
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <button class="btn-glass" id="resume-download-btn" title="Download Resume">
+                <i class="fa-solid fa-file-arrow-down"></i>
+                <span>Resume / CV</span>
+              </button>
+            </div>
+
+            <!-- Metrics Counter -->
+            <div class="hero-metrics">
+              <div class="metric-card">
+                <span class="metric-number" data-target="100">100%</span>
+                <span class="metric-label">Dedication</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-number" data-target="8">08+</span>
+                <span class="metric-label">Tech Masteries</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-number" data-target="999">∞</span >
+                <span class="metric-label">Passion to Learn</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right 3D Tilt Card -->
+          <div class="hero-visual-col">
+            <div class="holo-card-container" id="holo-card-container">
+              <!-- Floating 3D Badges -->
+              <div class="floating-badge badge-top-right">
+                <i class="fa-solid fa-wand-magic-sparkles badge-icon"></i>
+                <span>3D & Modern UI</span>
+              </div>
+              <div class="floating-badge badge-bottom-left">
+                <i class="fa-brands fa-react badge-icon"></i>
+                <span>React & Tailwind</span>
+              </div>
+
+              <!-- Main Glass Card with Gulshan's Image -->
+              <div class="holo-card">
+                <div class="holo-image-wrapper">
+                  <img src="assets/profile.jpeg" alt="Gulshan Kumar - Frontend Developer" id="hero-profile-img">
+                  <div class="holo-scanline"></div>
+                  <div class="holo-beam"></div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Marquee Animation -->
-    <div class="marquee-container">
-        <div class="marquee">
-            <span>FRONTEND DEVELOPMENT ✦ RESPONSIVE DESIGN ✦ REACT.JS ✦ TAILWIND CSS ✦ JAVASCRIPT ✦ FRONTEND ✦</span>
-        </div>
-    </div>
-
-    <!-- Expertise Section -->
-    <section class="expertise">
-        <div class="section-label"><span>03</span> EXPERTISE</div>
-        <h2>MY <span>SKILLS.</span></h2>
-        
-        <div class="stack-grid">
-            <div class="stack-card">
-                <span>01</span>
-                <h3>WEB FOUNDATION</h3>
-                <p>HTML5 · CSS3</p>
-            </div>
-            <div class="stack-card">
-                <span>02</span>
-                <h3>LOGIC & INTERACTION</h3>
-                <p>JavaScript (ES6+)</p>
-            </div>
-            <div class="stack-card">
-                <span>03</span>
-                <h3>FRAMEWORKS</h3>
-                <p>React.js</p>
-            </div>
-            <div class="stack-card">
-                <span>04</span>
-                <h3>STYLING & UI</h3>
-                <p>Tailwind CSS · Bootstrap</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Section -->
-    <section id="work" class="work">
-        <div class="section-label"><span>04</span> PROJECTS</div>
-        <h2>RECENT <span>WORK.</span></h2>
-        <p style="color: var(--text-dim); margin-bottom: 40px;">*Yeh section mere aane wale projects ke liye reserved hai. Main filhal in par kaam kar raha hu.*</p>
-        
-        <div class="project-list">
-            <div class="project-item">
-                <div class="project-info">
-                    <span>UPCOMING PROJECT</span>
-                    <h3>INTERACTIVE PORTFOLIO</h3>
-                    <p>Mera personal portfolio website jo modern animations, custom cursor aur dark theme ke sath banaya gaya hai.</p>
-                    <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                <div class="holo-card-info">
+                  <div>
+                    <h3 class="holo-card-title">Gulshan Kumar</h3>
+                    <p class="holo-card-desc">Bettiah, Bihar · Web Developer</p>
+                  </div>
+                  <span class="holo-status-chip">
+                    <i class="fa-solid fa-circle-check"></i> Available
+                  </span>
                 </div>
-                <a href="#" class="view-btn">IN PROGRESS ↗</a>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="project-item">
-                <div class="project-info">
-                    <span>UPCOMING PROJECT</span>
-                    <h3>WEATHER DASHBOARD</h3>
-                    <p>Ek API based weather application jahan users kisi bhi city ka live weather aur forecast dekh sakte hain.</p>
-                    <div class="tags"><span>React</span><span>Tailwind</span><span>API</span></div>
+      <!-- Infinite Glowing Marquee -->
+      <div class="marquee-wrapper">
+        <div class="marquee-content">
+          <div class="marquee-item">FRONTEND ARCHITECTURE <span class="sparkle">✦</span></div>
+          <div class="marquee-item">3D WEB & THREE.JS <span class="sparkle">✦</span></div>
+          <div class="marquee-item">RESPONSIVE DESIGN <span class="sparkle">✦</span></div>
+          <div class="marquee-item">REACT.JS ECOSYSTEM <span class="sparkle">✦</span></div>
+          <div class="marquee-item">TAILWIND CSS & MODERN UI <span class="sparkle">✦</span></div>
+          <div class="marquee-item">JAVASCRIPT ES6+ <span class="sparkle">✦</span></div>
+          <div class="marquee-item">PIXEL-PERFECT INTERACTION <span class="sparkle">✦</span></div>
+          <div class="marquee-item">CLEAN CODE & ACCESSIBILITY <span class="sparkle">✦</span></div>
+          <!-- Repeat for smooth loop -->
+          <div class="marquee-item">FRONTEND ARCHITECTURE <span class="sparkle">✦</span></div>
+          <div class="marquee-item">3D WEB & THREE.JS <span class="sparkle">✦</span></div>
+          <div class="marquee-item">RESPONSIVE DESIGN <span class="sparkle">✦</span></div>
+          <div class="marquee-item">REACT.JS ECOSYSTEM <span class="sparkle">✦</span></div>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <section id="about" class="about-section">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fa-solid fa-user-astronaut"></i>
+            <span>02 // WHO AM I</span>
+          </div>
+          <h2 class="section-title">
+            I WRITE CODE THAT <span class="highlight">WORKS & INSPIRES.</span>
+          </h2>
+          <p class="section-subtitle">
+            Transforming creative ideas into high-performing, fluid and beautiful digital realities.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Left: Story & Values -->
+          <div class="about-text-col">
+            <p>
+              Hello! Main <strong>Gulshan Kumar</strong> hoon. Ek passionate Frontend Developer jo modern web technologies, sleek animations aur 3D interactive interfaces develop karna pasand karta hai.
+            </p>
+            <p>
+              Mujhe nayi technologies explore karna aur design ko clean, efficient code ke zariye zinda karna pasand hai. Mera focus real-world problems ko solve karne wali websites banane aur user ko ek memorable digital experience dene par rehta hai.
+            </p>
+            <p>
+              Har project mein mera rule simple hai: <strong>Clean Code</strong>, <strong>Fast Load Speed</strong>, aur <strong>Responsive across all devices</strong>.
+            </p>
+
+            <ul class="about-highlights-list">
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Modern 3D web experiences with WebGL & Three.js</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Component-driven frontend architecture with React</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Fluid mobile-first responsive design with Tailwind CSS</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Available for freelance, internships and junior dev roles</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right: Interactive Developer Terminal -->
+          <div class="about-visual-col">
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <div class="terminal-dot dot-red"></div>
+                  <div class="terminal-dot dot-yellow"></div>
+                  <div class="terminal-dot dot-green"></div>
                 </div>
-                <a href="#" class="view-btn">IN PROGRESS ↗</a>
-            </div>
-        </div>
-    </section>
+                <div class="terminal-title">gulshan-profile.json — Dev Environment</div>
+                <i class="fa-solid fa-code" style="color: var(--accent); font-size: 0.8rem;"></i>
+              </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="section-label"><span>05</span> GET IN TOUCH</div>
-        <div class="contact-box">
-            <p>LOOKING FOR A JUNIOR DEV?</p>
-            <h2>LET'S TALK <span>ABOUT IT.</span></h2>
-            <div class="contact-links">
-                <!-- Apna asli email yahan daalein -->
-                <a href="mailto:gulshan@email.com">gulshan@email.com</a>
-                <!-- Apna WhatsApp number link yahan daalein -->
-                <a href="https://wa.me/919117437173" target="_blank">WHATSAPP ↗</a>
+              <div class="terminal-body">
+                <pre><code><span class="code-comment">// Developer Manifest</span>
+{
+  <span class="code-property">"name"</span>: <span class="code-string">"Gulshan Kumar"</span>,
+  <span class="code-property">"title"</span>: <span class="code-string">"Frontend Developer"</span>,
+  <span class="code-property">"origin"</span>: <span class="code-string">"Bettiah, Bihar, India"</span>,
+  <span class="code-property">"availability"</span>: <span class="code-string">"Available for Hire"</span>,
+  <span class="code-property">"passion"</span>: [
+    <span class="code-string">"3D Web Graphics"</span>,
+    <span class="code-string">"Modern React Development"</span>,
+    <span class="code-string">"Interactive UI/UX Design"</span>
+  ],
+  <span class="code-property">"values"</span>: {
+    <span class="code-property">"dedication"</span>: <span class="code-string">"100%"</span>,
+    <span class="code-property">"learningMindset"</span>: <span class="code-string">"Always active"</span>,
+    <span class="code-property">"cleanCode"</span>: <span class="code-keyword">true</span>
+  }
+}</code></pre>
+              </div>
+
+              <!-- Mini Console Footer -->
+              <div class="cli-box">
+                <div class="cli-input-line">
+                  <span class="cli-prompt">gulshan@system:~$</span>
+                  <span style="color: #cbd5e1; font-size: 0.85rem;">cat achievements.txt</span>
+                </div>
+                <div style="font-size: 0.78rem; color: var(--accent); margin-top: 6px;">
+                  ✔ Successfully designed modern 3D portfolio with Three.js WebGL & custom interactive physics!
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skills-section">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fa-solid fa-microchip"></i>
+            <span>03 // ARSENAL</span>
+          </div>
+          <h2 class="section-title">
+            TECH <span class="highlight">EXPERTISE.</span>
+          </h2>
+          <p class="section-subtitle">
+            Modern tools and technologies I leverage to build scalable, beautiful, and fluid digital products.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill 1 -->
+          <div class="skill-card-3d" data-tilt>
+            <span class="skill-card-num">01 // CORE WEB</span>
+            <div class="skill-card-icon">
+              <i class="fa-brands fa-html5"></i>
+            </div>
+            <h3 class="skill-card-title">HTML5 & Semantic Web</h3>
+            <p class="skill-card-desc">
+              Clean DOM structure, accessibility (a11y), SEO-optimized semantic elements, and modern web standards.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">Semantics</span>
+              <span class="skill-tag">Accessibility</span>
+              <span class="skill-tag">SEO</span>
+            </div>
+          </div>
+
+          <!-- Skill 2 -->
+          <div class="skill-card-3d" data-tilt>
+            <span class="skill-card-num">02 // STYLING</span>
+            <div class="skill-card-icon">
+              <i class="fa-brands fa-css3-alt"></i>
+            </div>
+            <h3 class="skill-card-title">CSS3 & Animations</h3>
+            <p class="skill-card-desc">
+              Glassmorphism, CSS Grid, Flexbox, custom keyframe animations, 3D transforms, and fluid typography.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">Keyframes</span>
+              <span class="skill-tag">Flex & Grid</span>
+              <span class="skill-tag">3D Transforms</span>
+            </div>
+          </div>
+
+          <!-- Skill 3 -->
+          <div class="skill-card-3d" data-tilt>
+            <span class="skill-card-num">03 // PROGRAMMING</span>
+            <div class="skill-card-icon">
+              <i class="fa-brands fa-js"></i>
+            </div>
+            <h3 class="skill-card-title">JavaScript (ES6+)</h3>
+            <p class="skill-card-desc">
+              Modern JavaScript mastery: Async/Await, Fetch API, DOM manipulation, closures, event-driven architecture.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">ES6+</span>
+              <span class="skill-tag">Async/Await</span>
+              <span class="skill-tag">DOM APIs</span>
+              <span class="skill-tag">Fetch REST</span>
+            </div>
+          </div>
+
+          <!-- Skill 4 -->
+          <div class="skill-card-3d" data-tilt>
+            <span class="skill-card-num">04 // FRAMEWORK</span>
+            <div class="skill-card-icon">
+              <i class="fa-brands fa-react"></i>
+            </div>
+            <h3 class="skill-card-title">React.js Ecosystem</h3>
+            <p class="skill-card-desc">
+              Functional components, custom hooks, reusable UI patterns, state management, and lifecycle events.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">React.js</span>
+              <span class="skill-tag">Hooks</span>
+              <span class="skill-tag">State Management</span>
+              <span class="skill-tag">SPA</span>
+            </div>
+          </div>
+
+          <!-- Skill 5 -->
+          <div class="skill-card-3d" data-tilt>
+            <span class="skill-card-num">05 // UTILITY UI</span>
+            <div class="skill-card-icon">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <h3 class="skill-card-title">Tailwind & Bootstrap</h3>
+            <p class="skill-card-desc">
+              Rapid UI prototyping, utility-first CSS, responsive breakpoints, dark mode integration, and themes.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Tailwind CSS</span>
+              <span class="skill-tag">Bootstrap 5</span>
+              <span class="skill-tag">Mobile First</span>
+              <span class="skill-tag">UI Libraries</span>
+            </div>
+          </div>
+
+          <!-- Skill 6 -->
+          <div class="skill-card-3d" data-tilt>
+            <span class="skill-card-num">06 // 3D & GRAPHICS</span>
+            <div class="skill-card-icon">
+              <i class="fa-solid fa-cube"></i>
+            </div>
+            <h3 class="skill-card-title">Three.js & WebGL</h3>
+            <p class="skill-card-desc">
+              Interactive 3D particle systems, geometric meshes, WebGL shaders, camera controls, and mouse parallax.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Three.js</span>
+              <span class="skill-tag">WebGL</span>
+              <span class="skill-tag">3D Particles</span>
+              <span class="skill-tag">Canvas</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="work" class="projects-section">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fa-solid fa-cubes"></i>
+            <span>04 // FEATURED WORK</span>
+          </div>
+          <h2 class="section-title">
+            RECENT <span class="highlight">PROJECTS.</span>
+          </h2>
+          <p class="section-subtitle">
+            A selection of hand-crafted digital creations showcasing modern frontend design and interactive features.
+          </p>
+        </div>
+
+        <div class="projects-container">
+          <!-- Project 1: 3D Interactive Portfolio -->
+          <div class="project-card-3d" data-tilt>
+            <div class="project-info-side">
+              <div class="project-badge">
+                <i class="fa-solid fa-sparkles"></i>
+                <span>FLAGSHIP CREATION</span>
+              </div>
+              <h3 class="project-heading">3D Interactive Dark Portfolio</h3>
+              <p class="project-desc">
+                Gulshan Kumar's official portfolio featuring real-time Three.js 3D particle constellations, custom fluid cursor, 3D tilt perspective cards, interactive developer CLI console, audio FX synthesizer, and multi-theme switcher.
+              </p>
+              <div class="project-tech-stack">
+                <span>HTML5</span>
+                <span>CSS3 Glassmorphism</span>
+                <span>JavaScript ES6+</span>
+                <span>Three.js WebGL</span>
+                <span>Responsive</span>
+              </div>
+              <div class="project-actions">
+                <a href="#home" class="btn-primary">
+                  <span>Current Live View</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <a href="https://github.com/gulshankumar800/My-portfolio" target="_blank" rel="noopener" class="btn-glass">
+                  <i class="fa-brands fa-github"></i>
+                  <span>Source Code</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Preview Visual -->
+            <div class="project-visual-preview">
+              <div class="preview-browser-bar">
+                <div class="browser-dots">
+                  <div class="browser-dot" style="background: #ef4444;"></div>
+                  <div class="browser-dot" style="background: #eab308;"></div>
+                  <div class="browser-dot" style="background: #22c55e;"></div>
+                </div>
+                <div class="browser-url">https://gulshankumar.dev/portfolio-3d</div>
+              </div>
+              <div class="preview-content" style="background: linear-gradient(135deg, #090e1a, #04060a);">
+                <div class="preview-overlay-card">
+                  <div class="preview-icon-large">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                  </div>
+                  <h4>3D Cyber-Luxe Interface</h4>
+                  <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 4px;">Dynamic WebGL & Tilt Matrix</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Weather Dashboard -->
+          <div class="project-card-3d" data-tilt>
+            <div class="project-info-side">
+              <div class="project-badge">
+                <i class="fa-solid fa-cloud-bolt"></i>
+                <span>LIVE API APPLICATION</span>
+              </div>
+              <h3 class="project-heading">WeatherSphere Dashboard</h3>
+              <p class="project-desc">
+                Real-time global weather dashboard with instant city lookup, 5-day predictive forecasts, interactive temperature metrics, dynamic background transitions according to weather condition, and responsive mobile-first UI.
+              </p>
+              <div class="project-tech-stack">
+                <span>React.js</span>
+                <span>Tailwind CSS</span>
+                <span>OpenWeather API</span>
+                <span>Asynchronous JS</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn-primary" onclick="openProjectModal('weather')">
+                  <span>Live Demo Preview</span>
+                  <i class="fa-solid fa-play"></i>
+                </button>
+                <a href="https://github.com/gulshankumar800" target="_blank" rel="noopener" class="btn-glass">
+                  <i class="fa-brands fa-github"></i>
+                  <span>GitHub Repo</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Preview Visual -->
+            <div class="project-visual-preview">
+              <div class="preview-browser-bar">
+                <div class="browser-dots">
+                  <div class="browser-dot"></div>
+                  <div class="browser-dot"></div>
+                  <div class="browser-dot"></div>
+                </div>
+                <div class="browser-url">https://weathersphere.gulshan.app</div>
+              </div>
+              <div class="preview-content" style="background: linear-gradient(135deg, #0a192f, #020c1b);">
+                <div class="preview-overlay-card">
+                  <div class="preview-icon-large" style="color: #38bdf8;">
+                    <i class="fa-solid fa-cloud-sun-rain"></i>
+                  </div>
+                  <h4>Live Weather Intelligence</h4>
+                  <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 4px;">Forecasts, Metrics & Animations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: CyberStore E-Commerce UI -->
+          <div class="project-card-3d" data-tilt>
+            <div class="project-info-side">
+              <div class="project-badge">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>E-COMMERCE UI</span>
+              </div>
+              <h3 class="project-heading">CyberStore - Digital Marketplace</h3>
+              <p class="project-desc">
+                High-performance cyber-themed modern storefront featuring dynamic product filtering, interactive cart state management, product zoom modals, and checkout simulation with instant visual feedback.
+              </p>
+              <div class="project-tech-stack">
+                <span>JavaScript ES6+</span>
+                <span>Tailwind CSS</span>
+                <span>Component UI</span>
+                <span>Local Storage</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn-primary" onclick="openProjectModal('ecommerce')">
+                  <span>Interactive Preview</span>
+                  <i class="fa-solid fa-bag-shopping"></i>
+                </button>
+                <a href="https://github.com/gulshankumar800" target="_blank" rel="noopener" class="btn-glass">
+                  <i class="fa-brands fa-github"></i>
+                  <span>Source Code</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Preview Visual -->
+            <div class="project-visual-preview">
+              <div class="preview-browser-bar">
+                <div class="browser-dots">
+                  <div class="browser-dot"></div>
+                  <div class="browser-dot"></div>
+                  <div class="browser-dot"></div>
+                </div>
+                <div class="browser-url">https://cyberstore.gulshan.dev</div>
+              </div>
+              <div class="preview-content" style="background: linear-gradient(135deg, #180d2b, #0c0617);">
+                <div class="preview-overlay-card">
+                  <div class="preview-icon-large" style="color: #c084fc;">
+                    <i class="fa-solid fa-cart-flatbed"></i>
+                  </div>
+                  <h4>Futuristic Web Storefront</h4>
+                  <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 4px;">Dynamic Cart & Responsive Catalog</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Developer Terminal Section -->
+      <section id="terminal" class="terminal-section">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fa-solid fa-terminal"></i>
+            <span>05 // INTERACTIVE CONSOLE</span>
+          </div>
+          <h2 class="section-title">
+            GULSHAN'S <span class="highlight">CLI ENVIRONMENT.</span>
+          </h2>
+          <p class="section-subtitle">
+            Type commands like <code>skills</code>, <code>projects</code>, <code>contact</code>, <code>whoami</code>, or <code>help</code> to test the interactive terminal.
+          </p>
+        </div>
+
+        <div class="terminal-window" style="max-width: 900px; margin: 0 auto;">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <div class="terminal-dot dot-red"></div>
+              <div class="terminal-dot dot-yellow"></div>
+              <div class="terminal-dot dot-green"></div>
+            </div>
+            <div class="terminal-title">bash — gulshan@bettiah-os: ~/portfolio</div>
+            <span style="font-size: 0.72rem; color: var(--accent); font-family: var(--font-mono);">v2.6.0-stable</span>
+          </div>
+
+          <div class="terminal-body" id="cli-screen" style="min-height: 220px; max-height: 340px; overflow-y: auto;">
+            <p style="color: var(--text-dim);">Type <strong style="color: var(--accent);">'help'</strong> to see available commands or try <strong style="color: var(--accent);">'whoami'</strong>, <strong style="color: var(--accent);">'skills'</strong>, <strong style="color: var(--accent);">'projects'</strong>, <strong style="color: var(--accent);">'contact'</strong>.</p>
+            <div id="cli-history"></div>
+          </div>
+
+          <div class="cli-box">
+            <form id="cli-form" class="cli-input-line">
+              <span class="cli-prompt">visitor@gulshan-web:~$</span>
+              <input type="text" id="cli-command-input" class="cli-input" placeholder="Type command here (e.g. help, skills, contact)..." autocomplete="off" spellcheck="false">
+              <button type="submit" style="display:none;"></button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fa-solid fa-satellite-dish"></i>
+            <span>06 // GET IN TOUCH</span>
+          </div>
+          <h2 class="section-title">
+            LET'S TALK <span class="highlight">ABOUT YOUR PROJECT.</span>
+          </h2>
+          <p class="section-subtitle">
+            Looking for a dedicated Junior Frontend Developer or want to collaborate? My inbox and WhatsApp are always open!
+          </p>
+        </div>
+
+        <div class="contact-container">
+          <!-- Contact Left Card -->
+          <div class="contact-info-card">
+            <div class="contact-info-top">
+              <h3>Have an idea?<br>Let's build it together.</h3>
+              <p>
+                Main currently open hu freelance projects, remote internships aur junior developer opportunities ke liye. Aap mujhe directly WhatsApp ya email par reach kar sakte hain.
+              </p>
+
+              <div class="contact-methods">
+                <!-- Direct WhatsApp Link -->
+                <a href="https://wa.me/919117437173?text=Hi%20Gulshan,%20I%20saw%20your%203D%20portfolio%20and%20would%20love%20to%20connect!" target="_blank" rel="noopener" class="contact-method-item" title="Chat on WhatsApp">
+                  <div class="contact-method-left">
+                    <div class="contact-method-icon">
+                      <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div>
+                      <div class="contact-method-title">Direct WhatsApp</div>
+                      <div class="contact-method-value">+91 9117437173</div>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-arrow-up-right-from-square contact-method-arrow"></i>
+                </a>
+
+                <!-- Email Card with Copy Feature -->
+                <div class="contact-method-item" style="cursor: pointer;" onclick="copyToClipboard('gulshankumar800@gmail.com', 'Email copied!')" title="Click to copy email">
+                  <div class="contact-method-left">
+                    <div class="contact-method-icon">
+                      <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div>
+                      <div class="contact-method-title">Direct Email (Click to copy)</div>
+                      <div class="contact-method-value">gulshankumar800@gmail.com</div>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-copy contact-method-arrow"></i>
+                </div>
+
+                <!-- Location -->
+                <div class="contact-method-item">
+                  <div class="contact-method-left">
+                    <div class="contact-method-icon">
+                      <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                      <div class="contact-method-title">Location</div>
+                      <div class="contact-method-value">Bettiah, Bihar · India</div>
+                    </div>
+                  </div>
+                  <i class="fa-solid fa-earth-asia contact-method-arrow"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div style="margin-top: 30px;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 12px;">Social Profiles</div>
+              <div class="footer-social-links">
+                <a href="https://github.com/gulshankumar800" target="_blank" rel="noopener" class="social-link" title="GitHub Profile">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://wa.me/919117437173" target="_blank" rel="noopener" class="social-link" title="WhatsApp Chat">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="mailto:gulshankumar800@gmail.com" class="social-link" title="Send Email">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Right Form -->
+          <div class="contact-form-card">
+            <h4>Send A Direct Message</h4>
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="form-name" class="form-label">YOUR NAME</label>
+                <input type="text" id="form-name" class="form-input" placeholder="e.g. Alex Johnson" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" class="form-label">YOUR EMAIL</label>
+                <input type="email" id="form-email" class="form-input" placeholder="e.g. alex@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-subject" class="form-label">SUBJECT</label>
+                <input type="text" id="form-subject" class="form-input" placeholder="e.g. Project Inquiry / Job Opportunity" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message" class="form-label">YOUR MESSAGE</label>
+                <textarea id="form-message" class="form-textarea" placeholder="Tell me about your project or role..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                <span>Send Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-left">
-            <h3>G<span>.</span></h3>
-            <p>FRONTEND DEVELOPER</p>
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>GK<span style="color: var(--accent);">.</span></h3>
+          <p>FRONTEND DEVELOPER & 3D WEB CREATOR</p>
         </div>
-        <div class="footer-links">
-            <a href="#">GitHub</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Instagram</a>
-        </div>
-        <div class="footer-right">
-            <p>© 2026 GULSHAN KUMAR</p>
-        </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="footer-social-links">
+          <a href="https://github.com/gulshankumar800" target="_blank" rel="noopener" class="social-link" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://wa.me/919117437173" target="_blank" rel="noopener" class="social-link" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="mailto:gulshankumar800@gmail.com" class="social-link" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Gulshan Kumar. All rights reserved.</p>
+        <p>Built with <span style="color: var(--accent);">Three.js</span>, Modern CSS & Passion in Bettiah, Bihar.</p>
+        <a href="#home" class="back-to-top" title="Scroll to top">
+          Back to top <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Interactive Project Modal -->
+  <div class="modal-overlay" id="project-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeProjectModal()">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Offline Three.js Script + CDN Fallback -->
+  <script src="assets/js/three.min.js"></script>
+  <script>
+    if (typeof THREE === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');
+    }
+  </script>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
 </body>
 </html>
