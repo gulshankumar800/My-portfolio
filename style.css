@@ -723,8 +723,8 @@ section {
 .holo-card-container {
   position: relative;
   width: 100%;
-  max-width: 440px;
-  aspect-ratio: 1/1.15;
+  max-width: 500px;
+  aspect-ratio: 1/1.22;
   transform-style: preserve-3d;
   transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
 }
@@ -734,17 +734,18 @@ section {
   height: 100%;
   background: var(--bg-card);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 18px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.7),
-    0 0 40px var(--accent-subtle),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 30px 60px rgba(0, 0, 0, 0.8),
+    0 0 50px var(--accent-subtle),
+    0 0 80px rgba(0, 245, 160, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   overflow: hidden;
   transform: translateZ(20px);
 }
@@ -753,8 +754,8 @@ section {
 .holo-card::before, .holo-card::after {
   content: '';
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   pointer-events: none;
 }
 
@@ -775,10 +776,10 @@ section {
 .holo-image-wrapper {
   position: relative;
   width: 100%;
-  height: 75%;
+  height: 84%;
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background: #030406;
 }
 
@@ -786,8 +787,8 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  filter: contrast(105%) brightness(95%);
+  object-position: center 20%;
+  filter: contrast(105%) brightness(98%);
   transition: transform 0.6s ease, filter 0.6s ease;
 }
 
@@ -1728,41 +1729,252 @@ footer.site-footer {
 
 @media (max-width: 768px) {
   header.site-header {
-    width: 95%;
+    width: 94%;
     padding: 10px 16px;
+    top: 12px;
   }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
   nav.main-nav {
     display: none;
     position: fixed;
-    top: 75px;
-    left: 5%;
-    right: 5%;
-    background: #090c14;
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-lg);
+    top: 70px;
+    left: 4%;
+    right: 4%;
+    background: rgba(8, 10, 16, 0.95);
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-md);
     flex-direction: column;
-    padding: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    padding: 18px;
+    gap: 8px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+    z-index: 99999;
   }
+
   nav.main-nav.open {
     display: flex;
   }
-  .mobile-menu-toggle {
-    display: block;
+
+  nav.main-nav a {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
+
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
   .theme-selector {
     display: none;
   }
+
+  .btn-status-pill {
+    padding: 6px 12px;
+    font-size: 0.72rem;
+  }
+
   section {
-    padding: 90px 5% 60px;
+    padding: 85px 5% 50px;
   }
+
+  .hero-section {
+    padding-top: 110px;
+    padding-bottom: 40px;
+  }
+
+  .hero-meta-bar {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    text-align: center;
+    font-size: 0.76rem;
+  }
+
   .hero-title {
-    font-size: 2.8rem;
+    font-size: clamp(2.3rem, 9.5vw, 3.4rem);
+    line-height: 1.05;
+    margin-bottom: 18px;
   }
+
+  .hero-dynamic-role {
+    font-size: 1.05rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 35px;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-glass {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 24px;
+    font-size: 0.92rem;
+  }
+
+  .hero-metrics {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding-top: 20px;
+  }
+
+  .metric-number {
+    font-size: 1.7rem;
+  }
+
+  .metric-label {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+  }
+
+  /* 3D Holo Card on Mobile - Big, Bold and Centered */
+  .hero-visual-col {
+    margin-top: 30px;
+    width: 100%;
+  }
+
   .holo-card-container {
-    max-width: 320px;
+    width: min(94vw, 420px);
+    max-width: 420px;
+    aspect-ratio: 1 / 1.25;
+    margin: 0 auto;
   }
+
+  .holo-card {
+    padding: 16px;
+  }
+
+  .holo-image-wrapper {
+    height: 84%;
+  }
+
+  .holo-card-info {
+    margin-top: 10px;
+  }
+
+  .holo-card-title {
+    font-size: 1.15rem;
+  }
+
   .floating-badge {
-    display: none;
+    display: flex;
+    padding: 6px 12px;
+    font-size: 0.72rem;
+  }
+
+  .floating-badge.badge-top-right {
+    top: -10px;
+    right: -8px;
+  }
+
+  .floating-badge.badge-bottom-left {
+    bottom: -8px;
+    left: -8px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 7.5vw, 2.6rem);
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .skill-card-3d {
+    padding: 24px 20px;
+  }
+
+  .project-card-3d {
+    padding: 26px 20px;
+    gap: 24px;
+  }
+
+  .project-heading {
+    font-size: 1.7rem;
+  }
+
+  .project-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .project-actions .btn-primary,
+  .project-actions .btn-glass {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    padding: 28px 20px;
+  }
+
+  .contact-info-top h3 {
+    font-size: 1.8rem;
+  }
+
+  .form-input, .form-textarea {
+    font-size: 16px; /* Prevents auto-zoom on mobile */
+  }
+
+  footer.site-footer {
+    padding: 40px 5% 25px;
+    text-align: center;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-social-links {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(2rem, 9vw, 2.7rem);
+  }
+
+  .holo-card-container {
+    width: 95vw;
+    aspect-ratio: 1 / 1.28;
+  }
+
+  .floating-badge {
+    font-size: 0.68rem;
+    padding: 5px 10px;
   }
 }

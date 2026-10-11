@@ -163,7 +163,7 @@
               <!-- Main Glass Card with Gulshan's Image -->
               <div class="holo-card">
                 <div class="holo-image-wrapper">
-                  <img src="profile.jpeg" alt="Gulshan Kumar - Frontend Developer" id="hero-profile-img">
+                  <img src="profile.jpeg" alt="Gulshan Kumar - Frontend Developer" id="hero-profile-img" onerror="this.src='WhatsApp Image 2026-09-28 at 10.32.30 AM.jpeg'">
                   <div class="holo-scanline"></div>
                   <div class="holo-beam"></div>
                 </div>
@@ -802,13 +802,8 @@
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toast-container"></div>
 
-  <!-- Offline Three.js Script + CDN Fallback -->
-  <script src="assets/js/three.min.js"></script>
-  <script>
-    if (typeof THREE === 'undefined') {
-      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');
-    }
-  </script>
+  <!-- Three.js 3D WebGL Library (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <!-- Main JavaScript File -->
   <script src="script.js"></script>
