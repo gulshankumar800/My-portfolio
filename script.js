@@ -165,7 +165,13 @@ function initThreeJS() {
   });
 
   geomMesh = new THREE.Mesh(polyGeometry, polyMaterial);
-  geomMesh.position.set(250, 0, -200);
+  if (window.innerWidth <= 768) {
+    geomMesh.position.set(0, 100, -250);
+    geomMesh.scale.set(0.65, 0.65, 0.65);
+  } else {
+    geomMesh.position.set(250, 0, -200);
+    geomMesh.scale.set(1, 1, 1);
+  }
   scene.add(geomMesh);
 
   // Event Listeners
@@ -206,9 +212,21 @@ function onDocumentMouseMove(event) {
 
 function onWindowResize() {
   if (!camera || !renderer) return;
+  windowHalfX = window.innerWidth / 2;
+  windowHalfY = window.innerHeight / 2;
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+
+  if (geomMesh) {
+    if (window.innerWidth <= 768) {
+      geomMesh.position.set(0, 100, -250);
+      geomMesh.scale.set(0.65, 0.65, 0.65);
+    } else {
+      geomMesh.position.set(250, 0, -200);
+      geomMesh.scale.set(1, 1, 1);
+    }
+  }
 }
 
 function animateThreeJS() {
@@ -680,12 +698,16 @@ function initContactAndActions() {
     });
   }
 
-  // Mobile menu toggle
+  // Mobile menu toggle with icon swap and outside click
   const mobileToggle = document.getElementById('mobile-toggle');
   const mainNav = document.getElementById('main-nav');
   if (mobileToggle && mainNav) {
-    mobileToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mainNav.classList.toggle('open');
+      mobileToggle.innerHTML = isOpen 
+        ? '<i class="fa-solid fa-xmark"></i>' 
+        : '<i class="fa-solid fa-bars-staggered"></i>';
       sfx.playClick();
     });
 
@@ -693,7 +715,26 @@ function initContactAndActions() {
     mainNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mainNav.classList.remove('open');
+        mobileToggle.innerHTML = '<i class="fa-solid fa-bars-staggered"></i>';
       });
+    });
+
+    // Close when clicking anywhere outside
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !mobileToggle.contains(e.target)) {
+        if (mainNav.classList.contains('open')) {
+          mainNav.classList.remove('open');
+          mobileToggle.innerHTML = '<i class="fa-solid fa-bars-staggered"></i>';
+        }
+      }
+    });
+
+    // Close if window resized to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && mainNav.classList.contains('open')) {
+        mainNav.classList.remove('open');
+        mobileToggle.innerHTML = '<i class="fa-solid fa-bars-staggered"></i>';
+      }
     });
   }
 
