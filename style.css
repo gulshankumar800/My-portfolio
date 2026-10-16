@@ -11,12 +11,12 @@
   --bg-card-hover: rgba(22, 28, 44, 0.85);
   --bg-glass: rgba(12, 16, 26, 0.65);
 
-  /* Primary Accent: Electric Cyan / Emerald (Default) */
-  --accent: #00f5a0;
-  --accent-secondary: #00d2ff;
-  --accent-glow: rgba(0, 245, 160, 0.35);
-  --accent-subtle: rgba(0, 245, 160, 0.12);
-  --accent-gradient: linear-gradient(135deg, #00f5a0 0%, #00d2ff 100%);
+  /* Primary Accent: Cyber Yellow (Default) */
+  --accent: #ffd600;
+  --accent-secondary: #ff9100;
+  --accent-glow: rgba(255, 214, 0, 0.4);
+  --accent-subtle: rgba(255, 214, 0, 0.12);
+  --accent-gradient: linear-gradient(135deg, #ffe600 0%, #ff9e00 100%);
   --accent-gradient-purple: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
 
   /* Text Hierarchy */
@@ -24,7 +24,7 @@
   --text-muted: #94a3b8;
   --text-dim: #64748b;
   --border-light: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(0, 245, 160, 0.3);
+  --border-accent: rgba(255, 214, 0, 0.35);
 
   /* Fonts */
   --font-heading: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -41,6 +41,24 @@
 }
 
 /* Theme Accents (Switchable dynamically) */
+[data-theme="yellow"] {
+  --accent: #ffd600;
+  --accent-secondary: #ff9100;
+  --accent-glow: rgba(255, 214, 0, 0.4);
+  --accent-subtle: rgba(255, 214, 0, 0.12);
+  --accent-gradient: linear-gradient(135deg, #ffe600 0%, #ff9e00 100%);
+  --border-accent: rgba(255, 214, 0, 0.35);
+}
+
+[data-theme="emerald"] {
+  --accent: #00f5a0;
+  --accent-secondary: #00d2ff;
+  --accent-glow: rgba(0, 245, 160, 0.35);
+  --accent-subtle: rgba(0, 245, 160, 0.12);
+  --accent-gradient: linear-gradient(135deg, #00f5a0 0%, #00d2ff 100%);
+  --border-accent: rgba(0, 245, 160, 0.3);
+}
+
 [data-theme="violet"] {
   --accent: #b066fe;
   --accent-secondary: #6366f1;
@@ -113,7 +131,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: 
-    radial-gradient(circle at 50% 20%, rgba(0, 245, 160, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 50% 20%, rgba(255, 214, 0, 0.05) 0%, transparent 60%),
     radial-gradient(circle at 85% 65%, rgba(0, 210, 255, 0.04) 0%, transparent 50%),
     linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
@@ -335,10 +353,10 @@ nav.main-nav a.active {
   transform: scale(1.15);
 }
 
+.color-dot[data-color="yellow"] { background: #ffd600; box-shadow: 0 0 8px rgba(255, 214, 0, 0.6); }
 .color-dot[data-color="emerald"] { background: #00f5a0; box-shadow: 0 0 8px rgba(0, 245, 160, 0.5); }
 .color-dot[data-color="violet"] { background: #b066fe; box-shadow: 0 0 8px rgba(176, 102, 254, 0.5); }
 .color-dot[data-color="cyan"] { background: #00e5ff; box-shadow: 0 0 8px rgba(0, 229, 255, 0.5); }
-.color-dot[data-color="amber"] { background: #ffb703; box-shadow: 0 0 8px rgba(255, 183, 3, 0.5); }
 
 .sound-toggle-btn {
   background: rgba(255, 255, 255, 0.04);
@@ -373,7 +391,7 @@ nav.main-nav a.active {
   gap: 8px;
   padding: 8px 16px;
   border-radius: var(--radius-full);
-  background: rgba(0, 245, 160, 0.08);
+  background: var(--accent-subtle);
   border: 1px solid var(--border-accent);
   color: var(--text-main);
   text-decoration: none;
@@ -605,7 +623,7 @@ section {
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 45px;
+  margin-bottom: 22px;
 }
 
 /* Futuristic 3D Buttons */
@@ -677,6 +695,65 @@ section {
   color: #fff;
 }
 
+/* Hero Social Links Strip Under Explore Buttons */
+.hero-social-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.hero-social-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+
+.hero-social-icons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.hero-social-link i {
+  color: var(--accent);
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
+}
+
+.hero-social-link:hover {
+  background: var(--accent-subtle);
+  border-color: var(--border-accent);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.hero-social-link:hover i {
+  transform: scale(1.25);
+}
+
 /* Quick Metrics Row */
 .hero-metrics {
   display: grid;
@@ -744,7 +821,7 @@ section {
   box-shadow: 
     0 30px 60px rgba(0, 0, 0, 0.8),
     0 0 50px var(--accent-subtle),
-    0 0 80px rgba(0, 245, 160, 0.12),
+    0 0 80px var(--accent-subtle),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   overflow: hidden;
   transform: translateZ(20px);
@@ -860,7 +937,7 @@ section {
 .holo-status-chip {
   padding: 4px 10px;
   border-radius: var(--radius-full);
-  background: rgba(0, 245, 160, 0.1);
+  background: var(--accent-subtle);
   border: 1px solid var(--border-accent);
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -1000,7 +1077,7 @@ section {
   background: #090b10;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 245, 160, 0.08);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px var(--accent-subtle);
   overflow: hidden;
   font-family: var(--font-mono);
 }
@@ -1726,6 +1803,13 @@ footer.site-footer {
   .hero-actions {
     justify-content: center;
   }
+  .hero-social-bar {
+    justify-content: center;
+    margin: 0 auto 30px;
+  }
+  .hero-social-icons {
+    justify-content: center;
+  }
   .hero-metrics {
     max-width: 500px;
     margin: 0 auto;
@@ -1837,7 +1921,7 @@ footer.site-footer {
     flex-direction: column;
     width: 100%;
     gap: 12px;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
   }
 
   .hero-actions .btn-primary,
@@ -1846,6 +1930,24 @@ footer.site-footer {
     justify-content: center;
     padding: 15px 24px;
     font-size: 0.92rem;
+  }
+
+  .hero-social-bar {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 28px;
+    gap: 8px;
+  }
+
+  .hero-social-icons {
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .hero-social-link {
+    padding: 7px 12px;
+    font-size: 0.78rem;
   }
 
   .hero-metrics {

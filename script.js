@@ -119,14 +119,15 @@ function initThreeJS() {
   const colors = new Float32Array(particleCount * 3);
 
   const themeColors = {
+    yellow: new THREE.Color('#ffd600'),
     emerald: new THREE.Color('#00f5a0'),
     violet: new THREE.Color('#b066fe'),
     cyan: new THREE.Color('#00e5ff'),
     amber: new THREE.Color('#ffb703')
   };
 
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'emerald';
-  const baseColor = themeColors[currentTheme] || themeColors.emerald;
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'yellow';
+  const baseColor = themeColors[currentTheme] || themeColors.yellow;
 
   for (let i = 0; i < particleCount * 3; i += 3) {
     positions[i] = (Math.random() - 0.5) * 1600;
@@ -177,12 +178,13 @@ function initThreeJS() {
 function updateThreeThemeColor(themeName) {
   if (!particles || !geomMesh) return;
   const colorMap = {
+    yellow: new THREE.Color('#ffd600'),
     emerald: new THREE.Color('#00f5a0'),
     violet: new THREE.Color('#b066fe'),
     cyan: new THREE.Color('#00e5ff'),
     amber: new THREE.Color('#ffb703')
   };
-  const newColor = colorMap[themeName] || colorMap.emerald;
+  const newColor = colorMap[themeName] || colorMap.yellow;
 
   // Update mesh color
   geomMesh.material.color.set(newColor);
@@ -314,11 +316,11 @@ function initTypewriter() {
   if (!el) return;
 
   const roles = [
-    "Frontend Architecture",
-    "Modern React.js Interfaces",
-    "3D Web Experiences",
-    "High-Performance Clean UI",
-    "Responsive Web Design"
+    "BCA Student & Developer",
+    "Backend Developer (Node.js & Express)",
+    "Frontend & React.js Architecture",
+    "Full Stack Web Creator",
+    "3D Web Graphics & Three.js"
   ];
 
   let roleIdx = 0;
@@ -361,8 +363,12 @@ function initThemeAndControls() {
   const themeDots = document.querySelectorAll('.color-dot');
   const soundBtn = document.getElementById('sound-toggle');
 
-  // Load saved theme
-  const savedTheme = localStorage.getItem('gk_portfolio_theme') || 'emerald';
+  // Load saved theme (default to yellow)
+  let savedTheme = localStorage.getItem('gk_portfolio_theme');
+  if (!savedTheme || savedTheme === 'emerald') {
+    savedTheme = 'yellow';
+    localStorage.setItem('gk_portfolio_theme', 'yellow');
+  }
   document.documentElement.setAttribute('data-theme', savedTheme);
   themeDots.forEach(dot => {
     if (dot.getAttribute('data-color') === savedTheme) {
@@ -414,25 +420,23 @@ function initTerminal() {
   const commands = {
     help: `Available commands:
   • <span style="color:var(--accent);">about</span>     - Bio & overview of Gulshan Kumar
-  • <span style="color:var(--accent);">skills</span>    - List of core frontend competencies
+  • <span style="color:var(--accent);">skills</span>    - Core competencies (Backend & Frontend)
   • <span style="color:var(--accent);">projects</span>  - Featured portfolio projects
-  • <span style="color:var(--accent);">contact</span>   - Direct WhatsApp, email & location
-  • <span style="color:var(--accent);">whoami</span>    - Current user session details
-  • <span style="color:var(--accent);">theme</span>     - Change theme (emerald, violet, cyan, amber)
+  • <span style="color:var(--accent);">contact</span>   - Direct WhatsApp, email, GitHub & LinkedIn
+  • <span style="color:var(--accent);">whoami</span>    - Current session details
+  • <span style="color:var(--accent);">theme</span>     - Change theme (yellow, emerald, violet, cyan)
   • <span style="color:var(--accent);">clear</span>     - Clear terminal history`,
 
-    whoami: `<span style="color:#38bdf8;">visitor@client-browser</span> - Authenticated to Gulshan Kumar's 3D Portfolio. Welcome!`,
+    whoami: `<span style="color:var(--accent);">visitor@client-browser</span> - Authenticated to Gulshan Kumar's Portfolio (BCA Student & Full Stack Developer).`,
 
-    about: `<span style="color:var(--accent); font-weight:700;">Gulshan Kumar:</span> Frontend Developer based in Bettiah, Bihar. Passionate about 3D Web, React.js, modern CSS, and building responsive, ultra-clean web applications.`,
+    about: `<span style="color:var(--accent); font-weight:700;">Gulshan Kumar:</span> BCA (Bachelor of Computer Applications) Student & Full Stack / Backend Developer based in Bettiah, Bihar. Builds robust Node.js/Express backends, MongoDB databases, modern React interfaces, and 3D Web applications.`,
 
     skills: `Current Tech Stack:
-  [✔] HTML5 Semantic Web & Accessibility
-  [✔] CSS3 / 3D Transforms / Keyframes
-  [✔] JavaScript (ES6+ / Async APIs / DOM)
-  [✔] React.js & Modern UI Architecture
-  [✔] Tailwind CSS & Bootstrap
-  [✔] Three.js WebGL & 3D Shaders
-  [✔] Git, GitHub & Responsive Dev`,
+  [✔] Backend: Node.js, Express.js, RESTful APIs, Middleware, MVC
+  [✔] Databases: MongoDB, Mongoose, Data Modeling, CRUD
+  [✔] Frontend: React.js, JavaScript (ES6+), HTML5, Semantic Web
+  [✔] UI & 3D: Tailwind CSS, Bootstrap 5, Three.js WebGL
+  [✔] Tools: Git, GitHub, VS Code, Responsive UI Architecture`,
 
     projects: `Featured Projects:
   1. <span style="color:var(--accent);">3D Dark Portfolio</span> - Three.js WebGL, 3D tilt, Custom sound synth
@@ -440,9 +444,11 @@ function initTerminal() {
   3. <span style="color:var(--accent);">CyberStore</span> - Modern dark ecommerce catalog & interactive cart`,
 
     contact: `Direct Contact Channels:
+  • <span style="color:var(--accent);">Email:</span> dygulshan2004@gmail.com
+  • <span style="color:var(--accent);">GitHub:</span> https://github.com/gulshankumar800
+  • <span style="color:var(--accent);">LinkedIn:</span> https://www.linkedin.com/in/gulshan-dubey-baaa0943b
   • <span style="color:var(--accent);">WhatsApp:</span> +91 9117437173 (wa.me/919117437173)
-  • <span style="color:var(--accent);">Email:</span> gulshankumar800@gmail.com
-  • <span style="color:var(--accent);">GitHub:</span> github.com/gulshankumar800
+  • <span style="color:var(--accent);">Live:</span> https://gulshankumar800.github.io/My-portfolio/
   • <span style="color:var(--accent);">Location:</span> Bettiah, Bihar, India`
   };
 
@@ -470,12 +476,12 @@ function initTerminal() {
       return;
     } else if (cmd.startsWith('theme ')) {
       const chosen = cmd.replace('theme ', '').trim();
-      if (['emerald', 'violet', 'cyan', 'amber'].includes(chosen)) {
+      if (['yellow', 'emerald', 'violet', 'cyan', 'amber'].includes(chosen)) {
         document.documentElement.setAttribute('data-theme', chosen);
         updateThreeThemeColor(chosen);
         response.innerHTML = `<span style="color:var(--accent);">✔ Theme switched to ${chosen.toUpperCase()}!</span>`;
       } else {
-        response.innerHTML = `<span style="color:#ef4444;">Invalid theme. Choose: emerald, violet, cyan, amber</span>`;
+        response.innerHTML = `<span style="color:#ef4444;">Invalid theme. Choose: yellow, emerald, violet, cyan</span>`;
       }
     } else if (commands[cmd]) {
       response.innerHTML = commands[cmd];
@@ -651,15 +657,15 @@ function initContactAndActions() {
           <div style="margin-bottom:20px;">
             <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent); text-transform:uppercase;">Curriculum Vitae</span>
             <h3 style="font-family:var(--font-heading); font-size:2rem; color:#fff; margin-top:4px;">Gulshan Kumar</h3>
-            <p style="color:var(--text-muted);">Frontend Developer · Bettiah, Bihar · +91 9117437173 · gulshankumar800@gmail.com</p>
+            <p style="color:var(--text-muted);">BCA Student & Full Stack Developer · Bettiah, Bihar · +91 9117437173 · dygulshan2004@gmail.com</p>
           </div>
           <div style="background:rgba(255,255,255,0.03); padding:20px; border-radius:12px; border:1px solid var(--border-light); font-size:0.92rem; line-height:1.7; color:#cbd5e1; margin-bottom:25px;">
-            <p><strong style="color:#fff;">Profile:</strong> Passionate Frontend Developer dedicated to creating modern, responsive, and 3D interactive web experiences. Focused on clean architecture, user experience, and modern JavaScript/React development.</p>
+            <p><strong style="color:#fff;">Profile:</strong> BCA Student & passionate Developer building robust backend systems (Node.js, Express, MongoDB), modern React.js interfaces, and 3D interactive web applications.</p>
             <div style="margin-top:12px;">
-              <strong style="color:#fff;">Technical Masteries:</strong> HTML5, CSS3, JavaScript ES6+, React.js, Tailwind CSS, Bootstrap 5, Three.js WebGL, Git & GitHub, Responsive Design.
+              <strong style="color:#fff;">Technical Masteries:</strong> Node.js, Express.js, MongoDB, RESTful APIs, React.js, JavaScript ES6+, HTML5, CSS3, Tailwind CSS, Three.js WebGL, Git & GitHub.
             </div>
             <div style="margin-top:12px;">
-              <strong style="color:#fff;">Availability:</strong> Open for Junior Frontend roles, Internships & Freelance Projects.
+              <strong style="color:#fff;">Availability:</strong> Open for Full Stack / Backend / Frontend Roles, Internships & Freelance Projects.
             </div>
           </div>
           <div style="display:flex; gap:12px; justify-content:flex-end;">
